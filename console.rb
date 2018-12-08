@@ -12,7 +12,7 @@ customer2.save
 customer3 = Customer.new({'name' => 'seb', 'funds' => 60})
 customer3.save
 
-film1 = Film.new({'title' => 'Jaws', 'price' => 50})
+film1 = Film.new({'title' => 'Jaws', 'price' => 60})
 film1.save
 film2 = Film.new({'title' => 'Forrest Gump', 'price' => 40})
 film2.save

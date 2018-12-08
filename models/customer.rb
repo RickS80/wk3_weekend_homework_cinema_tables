@@ -53,4 +53,17 @@ attr_reader :id
     film_hash.map { |film| Film.new(film)}
   end
 
+  def ticket_count
+    films.count
+  end
+
+  def buy_film_ticket(film)
+    ticket_price = film.price
+    if @funds >= ticket_price
+      @funds -= ticket_price
+    else p "you need more money to watch this film"
+    end
+  end
+
+
 end

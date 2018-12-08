@@ -54,6 +54,10 @@ attr_reader :id
     customer_hash.map { |customer| Customer.new(customer)}
   end
 
+  def customer_count
+    customers.count
+  end
+
 
 
   # binding.pry
