@@ -2,7 +2,9 @@ require('pry')
 require_relative('models/customer')
 require_relative('models/film')
 require_relative('models/ticket')
+require_relative('models/screening')
 require_relative('db/sql_runner')
+
 
 
 customer1 = Customer.new({'name' => 'rick', 'funds' => 50})
@@ -32,7 +34,12 @@ ticket4.save
 ticket5.save
 ticket6.save
 
-
+screenings1 = Screening.new({'film_id' => film1.id, 'screening_time' => '2018-12-08 10:30:00', 'capacity' => 50})
+screenings2 = Screening.new({'film_id' => film1.id, 'screening_time' => '2018-12-08 12:30:00', 'capacity' => 20})
+screenings3 = Screening.new({'film_id' => film1.id, 'screening_time' => '2018-12-08 14:30:00', 'capacity' => 30})
+screenings1.save
+screenings2.save
+screenings3.save
 # Ticket.all
 # Film.all
 # Customer.all

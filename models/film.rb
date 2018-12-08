@@ -58,10 +58,19 @@ attr_reader :id
     customers.count
   end
 
+  def screenings
+    sql = "SELECT screenings.* FROM
+    screenings INNER JOIN films ON
+    films.id = screenings.film_id
+    WHERE screenings.film_id = $1"
+    values = [@id]
+    screenings_hash = SqlRunner.run(sql, values)
+    screenings_hash.map { |screening| Screening.new(screening)}
+  end
 
 
-  # binding.pry
-  # nil
+
+
 
 
 
