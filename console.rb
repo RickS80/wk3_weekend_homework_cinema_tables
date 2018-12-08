@@ -33,13 +33,14 @@ ticket5.save
 ticket6.save
 
 
-Ticket.all
-Film.all
-Customer.all
+# Ticket.all
+# Film.all
+# Customer.all
 
-customer1.name = 'gary'
+# customer1.name = 'gary'
+# customer1.update
+
 binding.pry
-customer1.update
 
 
 nil

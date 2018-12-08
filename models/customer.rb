@@ -1,6 +1,7 @@
 require('pry')
 require_relative('../db/sql_runner')
 require_relative('film')
+require_relative('ticket')
 
 class Customer
 
@@ -40,6 +41,16 @@ attr_reader :id
   def self.delete_all
     sql = "DELETE FROM customers"
     SqlRunner.run(sql)
+  end
+
+  def films()
+    sql = "SELECT films.* FROM
+    films INNER JOIN tickets ON
+    films.id = tickets.film_id
+    WHERE tickets.customer_id = $1"
+    values = [@id]
+    film_hash = SqlRunner.run(sql, values)
+    film_hash.map { |film| Film.new(film)}
   end
 
 end
