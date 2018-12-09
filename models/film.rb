@@ -39,12 +39,12 @@ attr_reader :id
     SqlRunner.run(sql, values)
   end
 
-  def self.delete_all
+  def self.delete_all()
     sql = "DELETE FROM films"
     SqlRunner.run(sql)
   end
 
-  def customers
+  def customers()
     sql = "SELECT customers.* FROM
     customers INNER JOIN tickets ON
     customers.id = tickets.customer_id
@@ -54,11 +54,11 @@ attr_reader :id
     customer_hash.map { |customer| Customer.new(customer)}
   end
 
-  def customer_count
+  def customer_count()
     customers.count
   end
 
-  def screenings
+  def screenings()
     sql = "SELECT screenings.* FROM
     screenings INNER JOIN films ON
     films.id = screenings.film_id
@@ -67,9 +67,6 @@ attr_reader :id
     screenings_hash = SqlRunner.run(sql, values)
     screenings_hash.map { |screening| Screening.new(screening)}
   end
-
-
-
 
 
 

@@ -21,5 +21,25 @@ attr_reader :id, :film_id, :capacity
   end
 
 
+  def self.all()
+    sql = "SELECT * FROM screenings"
+    values = []
+    screening_hash = SqlRunner.run(sql, values)
+    result = screening_hash.map { |screening| Screening.new(screening) }
+    return result
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM screenings"
+    SqlRunner.run(sql)
+  end
+
+  def update()
+    sql = "UPDATE screenings SET (screening_time, capacity)= ($1, $2)
+    WHERE id = $3"
+    values = [@screening_time, @capacity, @id]
+    SqlRunner.run(sql, values)
+  end
+
 
 end

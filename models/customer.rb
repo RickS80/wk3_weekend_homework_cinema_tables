@@ -38,7 +38,7 @@ attr_reader :id
     SqlRunner.run(sql, values)
   end
 
-  def self.delete_all
+  def self.delete_all()
     sql = "DELETE FROM customers"
     SqlRunner.run(sql)
   end
@@ -53,16 +53,16 @@ attr_reader :id
     film_hash.map { |film| Film.new(film)}
   end
 
-  def ticket_count
+  def ticket_count()
     films.count
   end
 
   def buy_film_ticket(film)
     ticket_price = film.price
-    if @funds >= ticket_price
-      @funds -= ticket_price
-    else p "you need more money to watch this film"
-    end
+      if @funds >= ticket_price
+        @funds -= ticket_price
+      else p "you need more money to watch this film"
+      end
   end
 
 
